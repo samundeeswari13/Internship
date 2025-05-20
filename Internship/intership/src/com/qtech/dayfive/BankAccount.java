@@ -1,4 +1,4 @@
-package com.qtech.dayfive;
+ package com.qtech.dayfive;
 
 public class BankAccount {
     private int accno;
@@ -7,48 +7,45 @@ public class BankAccount {
     	this.accno=accno;
     	this.balance=initialBalance;
     }
-    public void deposit(double amount)throws InvalidAmountException {
-		if accNo;
-	}
-	public void setAccNo(int accNo) {
-    	this.accNo = accNo;
-    }
-    public double getBalance() {
-    	return balance;
-    }
-    public void setBalance(double balance) {
-    	this.balance = balance;
-    }
     public BankAccount() {
-    	super();
-    	
+		// TODO Auto-generated constructor stub
+	}
+	public void deposit(double amount)throws InvalidAmountException {
+		if(amount<=0) {
+			throw new InvalidAmountException("Deposit amount must be positive:");
+		}
+		else {
+			balance=balance+amount;
+			System.out.println("Deposited:"+amount);
+		}
+		}
+        public void withdraw(double amount)throws InvalidAmountException {
+		    if(amount<=0) {
+			throw new InvalidAmountException("Withdraw amount must be lessthan amount:");
+		}
+		    else {
+		    	balance=balance-amount;
+		    	System.out.println("Withdraw:"+amount);
+		    }
+            }
+            public void displayBalancce() {
+    	    System.out.println("current balance:"+balance);
     }
-	public BankAccount(int accNo, double balance) {
-		super();
-		this.accNo = accNo;
-		this.balance = balance;
+    public static void main(String[] args) {
+    	BankAccount account = new BankAccount();
+    	try {
+    		account.deposit(500);
+    		account.withdraw(300);
+    		account.withdraw(2000);
+    	}catch(InvalidAmountException e) {
+    		System.out.println("Transaction error:"+e.getMessage());
+    	}
+    
+    }
+	public void displayBalance() {
+		// TODO Auto-generated method stub
+		
 	}
-	@Override
-	public String toString() {
-		return "BankAccount [accNo=" + accNo + ", balance=" + balance + "]";
-	}
-	void deposit(int amount) throws InsufficentAmountException {
-		if(amount > DepositLimit) {
-			throw new InvalidAmountException
-			
-		}
-		balance = balance + amount;
-	}
-	
-	void withdraw(int amount) throws InsufficientFundException {
-		if(balance < amount) {
-			throw new ("Insufficient balance");
-		}
-		balance = balance - amount;
-	}
-	
-	void displayBalance() {
-		System.out.println("My current balance is:" +balance);
-		}
-	
 }
+    
+    
